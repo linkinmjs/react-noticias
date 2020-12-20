@@ -5,35 +5,43 @@ const Noticia = ({noticia}) => {
 
     // extraer los datos
     const { urlToImage, url, title, description, source } = noticia;
+    
+    if (urlToImage && url && title && description && source){
+        const imagen = {urlToImage} ? 
+            <div className="card-image">
+                <img src={urlToImage} alt={title}/>
+                <span className="card-title">{source.name}</span>
+            </div>
+        : null;
 
-    const imagen = {urlToImage} ? 
-        <div className="card-image">
-            <img src={urlToImage} alt={title}/>
-            <span className="card-title">{source.name}</span>
-        </div>
-    : null;
+        return (
+                <div className="col s12 m6 l4">
+                    <div className="card">
+                        {imagen}
 
-    return (
-            <div className="col s12 m6 l4">
-                <div className="card">
-                    {imagen}
+                        <div className="card-content">
+                            <h4>{title}</h4>
+                            <p>{description}</p>
+                        </div>
 
-                    <div className="card-content">
-                        <h4>{title}</h4>
-                        <p>{description}</p>
-                    </div>
-
-                    <div className="card-action">
-                        <a
-                            href={url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="waves-effect waves-light btn"
-                        >Ver noticia completa</a>
+                        <div className="card-action">
+                            <a
+                                href={url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="waves-effect waves-light btn"
+                            >Ver noticia completa</a>
+                        </div>
                     </div>
                 </div>
+            );
+    }else{
+        return (
+            <div className='error'>
+                <h3>{noticia.message}</h3>
             </div>
         );
+    }
 }
 
 Noticia.propTypes = {

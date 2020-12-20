@@ -17,9 +17,14 @@ function App() {
         const respuesta = await fetch(url);
         const noticias = await respuesta.json();
 
-        console.log(noticias);
+        
+        if(noticias.hasOwnProperty('articles')){
+          guardarNoticias(noticias.articles)
+          console.log(noticias);
+        }else{
+          guardarNoticias([{ message: 'Requests from the browser are not allowed on the Developer plan, except from localhost.', url: 'error'}])
+        }
 
-        guardarNoticias(noticias.articles)
     }
     consultarAPI()
   }, [categoria])
