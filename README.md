@@ -9,6 +9,7 @@ Proyecto didáctico hecho en React.
 ## Descripción
 
 Buscador de noticias por categoría. La información es consumida de https://newsapi.org/.
+Se podrá visualizar el ejemplo en producción en [link](https://hardcore-banach-b1ffc1.netlify.app)
 
 ### Tecnologías
 
@@ -28,6 +29,8 @@ Luego de clonar el proyecto, se deberá ejecutar:
 $ npm install
 $ npm start
 ```
+
+
 
 [node.js]: <https://nodejs.org/>
 [npm]: <https://www.npmjs.com/>
